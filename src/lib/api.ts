@@ -90,7 +90,26 @@ async function apiFetch<T>(path: string, timeoutMs = 8000): Promise<T> {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const res = await fetch(`/api/mc${path}`, { signal: controller.signal });
+    // Try backend API first (production), then direct API (dev)
+    const backendUrl = `/api/mc${path}`;
+    const directUrl = `${import.meta.env.VITE_API_BASE_URL || process.env.MGN_API_BASE_URL}${path}`;
+    const token = import.meta.env.VITE_API_TOKEN || process.env.MGN_API_TOKEN;
+    
+    // Use direct API call with token in development/production
+    const headers: Record<string, string> = {};
+    if (token) {
+      headers["Authorization"] = `Bearer ${token}`;
+    }
+    
+    const res = await fetch(directUrl, { 
+      signal: controller.signal,
+      headers,
+      mode: 'cors'
+    }).catch(() => 
+      // Fallback to backend proxy
+      fetch(backendUrl, { signal: controller.signal })
+    );
+    
     if (!res.ok) {
       const body = await res.json().catch(() => ({ error: `HTTP ${res.status}` }));
       throw new ApiError(res.status, (body as { error?: string }).error ?? `HTTP ${res.status}`);
