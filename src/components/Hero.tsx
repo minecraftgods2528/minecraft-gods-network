@@ -7,16 +7,16 @@ export default function Hero() {
 
   const copyIp = async () => {
     try {
-      await navigator.clipboard.writeText("minecraftgods.softhost.fun");
+      await navigator.clipboard.writeText("minecraftgods.wammuhost.fun:25571");
       toast({
         title: "IP Copied!",
-        description: "minecraftgods.softhost.fun copied to clipboard.",
+        description: "minecraftgods.wammuhost.fun:25571 copied to clipboard.",
         duration: 3000,
       });
     } catch {
       toast({
         title: "Copy Failed",
-        description: "Please copy the IP manually: minecraftgods.softhost.fun",
+        description: "Please copy the IP manually: minecraftgods.wammuhost.fun:25571",
         duration: 4000,
       });
     }
@@ -88,7 +88,7 @@ export default function Hero() {
                     Play Now
                   </div>
                   <div className="font-mono text-purple-300">
-                    minecraftgods.softhost.fun
+                    minecraftgods.wammuhost.fun:25571
                   </div>
                 </div>
                 <div className="w-px h-8 bg-white/20 mx-2"></div>
@@ -110,7 +110,7 @@ export default function Hero() {
 
           <div className="mt-8 flex gap-6 text-sm text-gray-400 justify-center">
             <span>
-              Port: <strong className="text-white">19172</strong>
+              Port: <strong className="text-white">25571</strong>
             </span>
             <span>•</span>
             <span>

@@ -14,8 +14,8 @@ export default function Footer() {
               conquer with a dedicated community.
             </p>
             <div className="flex flex-col gap-2 text-sm text-gray-500 font-mono">
-              <p>IP: minecraftgods.softhost.fun</p>
-              <p>Port: 19172</p>
+              <p>IP: minecraftgods.wammuhost.fun</p>
+              <p>Port: 25571</p>
               <p>Edition: Java Edition</p>
             </div>
           </div>
