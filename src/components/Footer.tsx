@@ -15,7 +15,7 @@ export default function Footer() {
             </p>
             <div className="flex flex-col gap-2 text-sm text-gray-500 font-mono">
               <p>IP: minecraftgods.wammuhost.fun</p>
-              <p>Port: 26089</p>
+              <p>Port: 25571</p>
               <p>Edition: Java Edition</p>
             </div>
           </div>
