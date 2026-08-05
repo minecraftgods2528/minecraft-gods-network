@@ -1,10 +1,11 @@
 module.exports = async function handler(req, res) {
-  const base = process.env.MGN_API_BASE_URL;
+  const configuredBase = process.env.MGN_API_BASE_URL;
+  const base = configuredBase?.replace(/^https:\/\//, "http://").replace(/\/$/, "");
   const token = process.env.MGN_API_TOKEN;
   const { username } = req.query;
   if (!base || !token) return res.status(500).json({ error: "Missing env vars" });
   try {
-    const r = await fetch(`${base}/player/${encodeURIComponent(username)}`, {
+    const r = await fetch(`${base}/api/player/${encodeURIComponent(username)}`, {
       headers: { Authorization: `Bearer ${token}` },
     });
     const data = await r.json();

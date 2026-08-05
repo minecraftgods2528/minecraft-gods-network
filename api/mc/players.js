@@ -4,7 +4,7 @@ module.exports = async function handler(req, res) {
   const token = process.env.MGN_API_TOKEN;
   if (!base || !token) return res.status(500).json({ error: "Missing env vars" });
   try {
-    const r = await fetch(`${base}/players`, { headers: { Authorization: `Bearer ${token}` } });
+    const r = await fetch(`${base}/api/players`, { headers: { Authorization: `Bearer ${token}` } });
     const data = await r.json();
     res.status(r.status).json(data);
   } catch (e) {
