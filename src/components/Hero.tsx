@@ -1,22 +1,23 @@
 import { Copy, ChevronDown, Gamepad2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { motion } from "framer-motion";
+import { GAME_SERVER_ADDRESS, GAME_SERVER_PORT } from "@/config/server";
 
 export default function Hero() {
   const { toast } = useToast();
 
   const copyIp = async () => {
     try {
-      await navigator.clipboard.writeText("minecraftgods.wammuhost.fun:25571");
+      await navigator.clipboard.writeText(GAME_SERVER_ADDRESS);
       toast({
         title: "IP Copied!",
-        description: "minecraftgods.wammuhost.fun:25571 copied to clipboard.",
+        description: `${GAME_SERVER_ADDRESS} copied to clipboard.`,
         duration: 3000,
       });
     } catch {
       toast({
         title: "Copy Failed",
-        description: "Please copy the IP manually: minecraftgods.wammuhost.fun:25571",
+        description: `Please copy the IP manually: ${GAME_SERVER_ADDRESS}`,
         duration: 4000,
       });
     }
@@ -88,7 +89,7 @@ export default function Hero() {
                     Play Now
                   </div>
                   <div className="font-mono text-purple-300">
-                    minecraftgods.wammuhost.fun:25571
+                    {GAME_SERVER_ADDRESS}
                   </div>
                 </div>
                 <div className="w-px h-8 bg-white/20 mx-2"></div>
@@ -110,7 +111,7 @@ export default function Hero() {
 
           <div className="mt-8 flex gap-6 text-sm text-gray-400 justify-center">
             <span>
-              Port: <strong className="text-white">25571</strong>
+              Port: <strong className="text-white">{GAME_SERVER_PORT}</strong>
             </span>
             <span>•</span>
             <span>

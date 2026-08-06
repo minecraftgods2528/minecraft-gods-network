@@ -1,19 +1,16 @@
 const VALID = ["kills", "deaths", "money", "kd", "playtime", "claimblocks", "mobkills"];
+const { requestJson } = require("../_request");
 
 module.exports = async function handler(req, res) {
-  const configuredBase = process.env.MGN_API_BASE_URL;
-  const base = configuredBase?.replace(/^https:\/\//, "http://").replace(/\/$/, "");
   const token = process.env.MGN_API_TOKEN;
   const { metric } = req.query;
   if (!VALID.includes(metric)) return res.status(400).json({ error: `Invalid metric. Use: ${VALID.join(", ")}` });
-  if (!base || !token) return res.status(500).json({ error: "Missing env vars" });
+  if (!token) return res.status(500).json({ error: "Missing MGN_API_TOKEN" });
+
   try {
-    const r = await fetch(`${base}/api/leaderboard/${metric}`, {
-      headers: { Authorization: `Bearer ${token}` },
-    });
-    const data = await r.json();
-    res.status(r.status).json(data);
-  } catch (e) {
-    res.status(502).json({ error: String(e) });
+    const result = await requestJson(`/api/leaderboard/${metric}`, token);
+    return res.status(result.status).json(result.data);
+  } catch (error) {
+    return res.status(502).json({ error: "Minecraft API unavailable" });
   }
 };

@@ -5,6 +5,7 @@ import { RefreshCw, Users, Wifi, WifiOff } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PlayerSearchBox from "@/components/PlayerSearchBox";
+import { GAME_SERVER_ADDRESS } from "@/config/server";
 import {
   api, avatarUrl, formatLeaderboardValue, LEADERBOARD_TABS,
   type PlayerStats, type LeaderboardMetric, type LeaderboardResponse,
@@ -308,7 +309,7 @@ export default function PlayersPage() {
             <div className="text-center py-16">
               <Users className="w-12 h-12 text-gray-700 mx-auto mb-3" />
               <p className="text-gray-400">No players online right now</p>
-              <p className="text-gray-600 text-sm mt-1">Be the first — join <span className="font-mono text-white">minecraftgods.wammuhost.fun:25571</span></p>
+              <p className="text-gray-600 text-sm mt-1">Be the first — join <span className="font-mono text-white">{GAME_SERVER_ADDRESS}</span></p>
             </div>
           ) : (
             <AnimatePresence mode="popLayout">

@@ -1,4 +1,5 @@
 import { Gamepad2 } from "lucide-react";
+import { GAME_SERVER_HOST, GAME_SERVER_PORT } from "@/config/server";
 
 export default function Footer() {
   return (
@@ -14,8 +15,8 @@ export default function Footer() {
               conquer with a dedicated community.
             </p>
             <div className="flex flex-col gap-2 text-sm text-gray-500 font-mono">
-              <p>IP: minecraftgods.wammuhost.fun</p>
-              <p>Port: 25571</p>
+              <p>IP: {GAME_SERVER_HOST}</p>
+              <p>Port: {GAME_SERVER_PORT}</p>
               <p>Edition: Java Edition</p>
             </div>
           </div>
