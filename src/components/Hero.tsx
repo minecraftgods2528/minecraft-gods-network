@@ -26,7 +26,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden pt-20"
+      className="relative min-h-[100dvh] w-full flex items-center justify-center overflow-hidden px-4 pt-24 sm:pt-20"
     >
       {/* Background Starfield/Particles */}
       <div className="absolute inset-0 z-0 bg-[#0a0a0f]">
@@ -51,7 +51,7 @@ export default function Hero() {
         <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-blue-600/20 rounded-full blur-[120px]"></div>
       </div>
 
-      <div className="relative z-10 text-center px-4 max-w-5xl mx-auto flex flex-col items-center">
+      <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col items-center text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -64,7 +64,7 @@ export default function Hero() {
             </span>
           </div>
 
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-white tracking-tight mb-6 drop-shadow-2xl">
+          <h1 className="max-w-full text-[clamp(2.25rem,11vw,3.5rem)] leading-[1.05] sm:text-6xl md:text-7xl lg:text-8xl font-serif font-bold text-white tracking-tight mb-6 drop-shadow-2xl break-words">
             MINECRAFT{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500">
               GOD'S
@@ -81,14 +81,14 @@ export default function Hero() {
               <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
               <button
                 onClick={copyIp}
-                className="relative flex items-center gap-3 bg-black/80 backdrop-blur-xl border border-white/10 px-8 py-4 rounded-lg text-lg font-bold text-white hover:bg-white/10 transition-all cursor-pointer"
+                className="relative flex w-full max-w-full items-center justify-between gap-3 bg-black/80 backdrop-blur-xl border border-white/10 px-4 sm:px-8 py-4 rounded-lg text-base sm:text-lg font-bold text-white hover:bg-white/10 transition-all cursor-pointer"
                 data-testid="button-copy-ip-hero"
               >
                 <div className="text-left">
                   <div className="text-sm text-gray-400 font-normal">
                     Play Now
                   </div>
-                  <div className="font-mono text-purple-300">
+                  <div className="max-w-[calc(100vw-7rem)] truncate font-mono text-sm text-purple-300 sm:text-base">
                     {GAME_SERVER_ADDRESS}
                   </div>
                 </div>

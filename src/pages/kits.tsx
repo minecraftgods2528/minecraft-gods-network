@@ -130,8 +130,8 @@ export default function KitsPage() {
                 </div>
 
                 {/* Card footer */}
-                <div className="p-5 flex items-center justify-between gap-4 mt-auto">
-                  <div className="flex items-center gap-3">
+                <div className="p-4 sm:p-5 flex flex-col items-stretch gap-4 mt-auto sm:flex-row sm:items-center sm:justify-between">
+                  <div className="flex min-w-0 items-center gap-3">
                     <h2 className="text-white font-bold text-lg">{kit.name}</h2>
                     <span className={`text-sm font-bold px-3 py-1 rounded-full border ${kit.badge}`}>
                       {kit.price}
@@ -141,7 +141,7 @@ export default function KitsPage() {
                     href={DISCORD_URL}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2.5 rounded-xl text-sm font-semibold transition-all shadow-lg hover:shadow-indigo-500/30 whitespace-nowrap flex-shrink-0"
+                    className="flex w-full items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2.5 rounded-xl text-sm font-semibold transition-all shadow-lg hover:shadow-indigo-500/30 whitespace-nowrap sm:w-auto sm:flex-shrink-0"
                   >
                     <ExternalLink className="w-4 h-4" />
                     Purchase on Discord
