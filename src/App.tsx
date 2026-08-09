@@ -16,12 +16,14 @@ import KitsPage from '@/pages/kits';
 import PlayersPage from '@/pages/players';
 import PlayerProfilePage from '@/pages/player-profile';
 import LivePlayers from '@/components/LivePlayers';
+import ServerSongPlayer from '@/components/ServerSongPlayer';
 
 const queryClient = new QueryClient();
 
 function LandingPage() {
   return (
     <div className="min-h-screen w-full bg-[#0a0a0f] text-foreground font-sans">
+      <ServerSongPlayer />
       <Navbar />
       <Hero />
       <Features />
