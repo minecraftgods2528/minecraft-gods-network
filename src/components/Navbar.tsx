@@ -15,23 +15,23 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/40 backdrop-blur-md border-b border-white/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+    <nav className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#07070c]/75 backdrop-blur-xl">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex h-16 items-center justify-between sm:h-20">
           <div className="flex-shrink-0 flex items-center gap-2 min-w-0">
-            <span className="font-serif font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400 text-lg sm:text-xl md:text-2xl whitespace-nowrap">
+            <span className="bg-gradient-to-r from-purple-300 via-violet-300 to-blue-300 bg-clip-text font-serif text-lg font-bold tracking-tight text-transparent sm:text-xl md:text-2xl">
               <span className="hidden sm:inline">⚔ Minecraft God's Network</span>
               <span className="sm:hidden">⚔ MGN</span>
             </span>
           </div>
 
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
+            <div className="ml-8 flex items-center gap-1">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
-                  className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors hover:bg-white/5"
+                  className="rounded-lg px-3 py-2 text-sm font-medium text-gray-300 transition-colors hover:bg-white/10 hover:text-white"
                   data-testid={`link-nav-${link.name.toLowerCase()}`}
                 >
                   {link.name}
@@ -41,7 +41,7 @@ export default function Navbar() {
                 href="https://discord.gg/tdDmk5UqbY"
                 target="_blank"
                 rel="noreferrer"
-                className="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-md text-sm font-medium transition-all shadow-[0_0_15px_rgba(59,130,246,0.5)] hover:shadow-[0_0_25px_rgba(59,130,246,0.7)]"
+                className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-[0_0_18px_rgba(59,130,246,0.35)] transition-all hover:bg-blue-500 hover:shadow-[0_0_28px_rgba(59,130,246,0.55)]"
                 data-testid="link-nav-discord"
               >
                 Join Discord
@@ -54,7 +54,7 @@ export default function Navbar() {
               onClick={() => setIsOpen(!isOpen)}
               aria-label={isOpen ? "Close menu" : "Open menu"}
               aria-expanded={isOpen}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-white/5 focus:outline-none"
+              className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-gray-300 transition hover:bg-white/10 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-400/60"
               data-testid="button-mobile-menu"
             >
               {isOpen ? (
@@ -68,13 +68,13 @@ export default function Navbar() {
       </div>
 
       {isOpen && (
-        <div className="md:hidden bg-black/95 backdrop-blur-xl border-b border-white/10">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <div className="md:hidden border-b border-white/10 bg-[#07070c]/95 px-2 pb-3 pt-2 shadow-2xl backdrop-blur-xl">
+          <div className="space-y-1 sm:px-3">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                className="block min-h-12 rounded-xl px-4 py-3 text-base font-medium text-gray-300 transition hover:bg-white/10 hover:text-white"
                 onClick={() => setIsOpen(false)}
                 data-testid={`link-mobile-nav-${link.name.toLowerCase()}`}
               >
@@ -85,7 +85,7 @@ export default function Navbar() {
               href="https://discord.gg/tdDmk5UqbY"
               target="_blank"
               rel="noreferrer"
-              className="text-blue-400 hover:text-blue-300 block px-3 py-2 rounded-md text-base font-medium"
+              className="mt-2 block min-h-12 rounded-xl border border-blue-400/20 bg-blue-500/10 px-4 py-3 text-base font-semibold text-blue-300 transition hover:bg-blue-500/20 hover:text-blue-200"
               data-testid="link-mobile-nav-discord"
             >
               Join Discord

@@ -26,7 +26,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-[100dvh] w-full flex items-center justify-center overflow-hidden px-4 pt-24 sm:pt-20"
+      className="relative flex min-h-[100dvh] w-full items-center justify-center overflow-hidden px-4 pb-16 pt-24 sm:px-6 sm:pt-28"
     >
       {/* Background Starfield/Particles */}
       <div className="absolute inset-0 z-0 bg-[#0a0a0f]">
@@ -72,16 +72,16 @@ export default function Hero() {
             NETWORK
           </h1>
 
-          <p className="text-xl md:text-2xl text-gray-300 font-medium mb-12 tracking-wide">
+          <p className="mb-9 text-lg font-medium tracking-wide text-gray-300 sm:mb-12 sm:text-xl md:text-2xl">
             Build • Trade • Fight • Conquer
           </p>
 
-          <div className="flex flex-col md:flex-row items-center gap-6 justify-center">
-            <div className="group relative">
+          <div className="flex w-full max-w-xl flex-col items-stretch justify-center gap-4 sm:gap-6 md:flex-row md:items-center">
+            <div className="group relative w-full md:w-auto">
               <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
               <button
                 onClick={copyIp}
-                className="relative flex w-full max-w-full items-center justify-between gap-3 bg-black/80 backdrop-blur-xl border border-white/10 px-4 sm:px-8 py-4 rounded-lg text-base sm:text-lg font-bold text-white hover:bg-white/10 transition-all cursor-pointer"
+                className="relative flex min-h-16 w-full items-center justify-between gap-3 rounded-xl border border-white/15 bg-black/70 px-4 py-3 text-left text-base font-bold text-white backdrop-blur-xl transition-all hover:bg-white/10 sm:px-6 sm:py-4 sm:text-lg"
                 data-testid="button-copy-ip-hero"
               >
                 <div className="text-left">
@@ -101,7 +101,7 @@ export default function Hero() {
               href="https://discord.gg/tdDmk5UqbY"
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-2 bg-blue-600/20 hover:bg-blue-600/40 border border-blue-500/50 px-8 py-4 rounded-lg text-lg font-bold text-blue-100 transition-all shadow-[0_0_15px_rgba(59,130,246,0.3)] hover:shadow-[0_0_25px_rgba(59,130,246,0.5)]"
+              className="flex min-h-16 w-full items-center justify-center gap-2 rounded-xl border border-blue-400/40 bg-blue-600/20 px-6 py-4 text-lg font-bold text-blue-100 shadow-[0_0_20px_rgba(59,130,246,0.25)] transition-all hover:bg-blue-600/40 hover:shadow-[0_0_30px_rgba(59,130,246,0.45)] md:w-auto md:px-8"
               data-testid="button-join-discord-hero"
             >
               <Gamepad2 className="w-5 h-5" />
@@ -109,7 +109,7 @@ export default function Hero() {
             </a>
           </div>
 
-          <div className="mt-8 flex gap-6 text-sm text-gray-400 justify-center">
+          <div className="mt-7 flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm text-gray-400 sm:mt-8 sm:gap-6">
             <span>
               Port: <strong className="text-white">{GAME_SERVER_PORT}</strong>
             </span>

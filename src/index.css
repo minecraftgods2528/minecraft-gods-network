@@ -102,6 +102,7 @@
   html,
   body {
     @apply max-w-full overflow-x-hidden;
+    min-width: 320px;
   }
 
   body {
