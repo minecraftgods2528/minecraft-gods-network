@@ -67,9 +67,9 @@ export default function PlayerSearchBox({
         <span className="text-amber-400 flex-shrink-0">📱</span>
         <span>
           <span className="text-amber-400 font-medium">Bedrock players:</span>{" "}
-          apne username ke aage{" "}
+          Add{" "}
           <span className="text-white font-mono bg-white/5 px-1 rounded">.&nbsp;</span>{" "}
-          (dot) lagakar search karein.{" "}
+          (dot) before your username to search.{" "}
           <span className="text-gray-400">Example: .Player1246</span>
         </span>
       </p>
