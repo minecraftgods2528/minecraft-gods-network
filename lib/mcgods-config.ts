@@ -3,7 +3,12 @@ export const serverConfig = {
   fullName: "Minecraft God's Network",
   tagline: "India's Survival Network",
   ip: "minecraftgods.qd.je",
-  port: "25571",
+  port: "19188",
+  javaAddress: "minecraftgods.qd.je:19188",
+  javaIp: "minecraftgods.qd.je",
+  javaPort: "19188",
+  bedrockIp: "minecraftgods.qd.je",
+  bedrockPort: "19152",
   discord: "https://discord.gg/tdDmk5UqbY",
   store: "https://minecraftgods.vercel.app/",
 } as const
@@ -19,10 +24,10 @@ export const features = [
 ] as const
 
 export const faqs = [
-  ["How do I join MCGODS?", `Use the server address ${serverConfig.ip} and port ${serverConfig.port}.`],
+  ["How do I join MCGODS?", `Java: ${serverConfig.javaAddress}. Bedrock: ${serverConfig.bedrockIp} with port ${serverConfig.bedrockPort}.`],
   ["Does MCGODS support Java and Bedrock?", "Yes, the server supports both Java and Bedrock editions."],
   ["What is the server IP?", serverConfig.ip],
-  ["What is the server port?", serverConfig.port],
+  ["What is the server port?", `Java: ${serverConfig.javaPort} · Bedrock: ${serverConfig.bedrockPort}`],
   ["Does the server have land claims?", "Yes, MCGODS supports land claims and grief protection."],
   ["Do voting rewards exist?", "Voting rewards will be announced once the final reward system is confirmed."],
   ["Where can I join the community?", `Join our Discord at ${serverConfig.discord}`],

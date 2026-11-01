@@ -2,7 +2,7 @@ import { NextResponse } from "next/server"
 
 export async function GET() {
   const host = "minecraftgods.qd.je"
-  const port = "25571"
+  const port = "19188"
 
   try {
     const started = Date.now()
