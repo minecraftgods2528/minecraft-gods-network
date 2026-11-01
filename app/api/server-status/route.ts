@@ -6,17 +6,34 @@ export async function GET() {
 
   try {
     const started = Date.now()
-    const response = await fetch(`https://api.mcsrvstat.us/3/${host}:${port}`, { cache: "no-store" })
+    const address = `${host}:${port}`
+    const endpoints = [
+      `https://api.mcstatus.io/v2/status/java/${encodeURIComponent(address)}?query=true`,
+      `https://api.mcsrvstat.us/3/${address}`,
+    ]
+    let data: any = null
+    for (const endpoint of endpoints) {
+      try {
+        const response = await fetch(endpoint, { cache: "no-store", signal: AbortSignal.timeout(7000) })
+        if (response.ok) {
+          const candidate = await response.json()
+          if (candidate.online) { data = candidate; break }
+        }
+      } catch {
+        continue
+      }
+    }
     const pingMs = Date.now() - started
-    if (!response.ok) return NextResponse.json({ online: false, error: "Status unavailable" }, { status: 502 })
-    const data = await response.json()
+    if (!data) return NextResponse.json({ online: false, error: "Status unavailable" }, { status: 502 })
+    const names = (data.players?.list?.map((player: any) => typeof player === "string" ? player : player.name) ?? data.players?.sample?.map((player: any) => player.name) ?? []).filter(Boolean)
+    const motd = Array.isArray(data.motd?.clean) ? data.motd.clean.join(" ") : data.motd?.clean ?? data.motd?.raw ?? ""
     return NextResponse.json({
-      online: Boolean(data.online),
+      online: true,
       players: data.players?.online ?? 0,
       maxPlayers: data.players?.max ?? 0,
-      names: data.players?.list ?? [],
-      motd: data.motd?.clean?.join(" ") ?? "",
-      version: data.version ?? "",
+      names,
+      motd,
+      version: data.version?.name_clean ?? data.version?.name ?? data.version ?? "",
       pingMs,
     })
   } catch {
