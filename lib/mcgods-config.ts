@@ -26,7 +26,7 @@ export const features = [
 export const faqs = [
   ["How do I join MCGODS?", `Java: ${serverConfig.javaAddress}. Bedrock: ${serverConfig.bedrockIp} with port ${serverConfig.bedrockPort}.`],
   ["Does MCGODS support Java and Bedrock?", "Yes, the server supports both Java and Bedrock editions."],
-  ["What is the server IP?", serverConfig.ip],
+  ["What are the server addresses?", `Java: ${serverConfig.javaAddress} · Bedrock: ${serverConfig.bedrockIp}:${serverConfig.bedrockPort}`],
   ["What is the server port?", `Java: ${serverConfig.javaPort} · Bedrock: ${serverConfig.bedrockPort}`],
   ["Does the server have land claims?", "Yes, MCGODS supports land claims and grief protection."],
   ["Do voting rewards exist?", "Voting rewards will be announced once the final reward system is confirmed."],
