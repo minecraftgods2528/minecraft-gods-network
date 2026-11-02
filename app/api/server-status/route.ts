@@ -25,7 +25,7 @@ export async function GET() {
     }
     const pingMs = Date.now() - started
     if (!data) return NextResponse.json({ online: false, error: "Status unavailable" }, { status: 502 })
-    const names = (data.players?.list?.map((player: any) => typeof player === "string" ? player : player.name) ?? data.players?.sample?.map((player: any) => player.name) ?? []).filter(Boolean)
+    const names = (data.players?.list?.map((player: any) => typeof player === "string" ? player : player.name_clean ?? player.name_raw ?? player.name) ?? data.players?.sample?.map((player: any) => player.name_clean ?? player.name_raw ?? player.name) ?? []).filter(Boolean)
     const motd = Array.isArray(data.motd?.clean) ? data.motd.clean.join(" ") : data.motd?.clean ?? data.motd?.raw ?? ""
     return NextResponse.json({
       online: true,
