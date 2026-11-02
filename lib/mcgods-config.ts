@@ -10,7 +10,7 @@ export const serverConfig = {
   bedrockIp: "minecraftgods.qd.je",
   bedrockPort: "19152",
   discord: "https://discord.gg/tdDmk5UqbY",
-  store: "https://minecraftgods.vercel.app/",
+  store: "https://mgsstore.vercel.app/",
 } as const
 
 export const features = [
